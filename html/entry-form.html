@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" lang="ru">
+    <title>Форма регистрации</title>
+    <link rel="stylesheet" href="../css/entry-form.css">
+</head>
+
+<body>
+    <article class="reg-form">
+        <form class="rf rf-center" action="registration" method="POST">
+            <section class="rf-result-container">
+                <div class="rf-result-invisible rf-result-red" role="alert" tabindex="0">
+                    <div id="rf-err-title">Заголовок ошибки</div>
+                    <div id="rf-err-text">Текст ошибки</div>
+                </div>
+                <div class="rf-result-invisible rf-result-green" role="alert" tabindex="0">
+                    <div id="rf-suc-title">Заголовок сообщения об успешной операции</div>
+                    <div id="rf-suc-text">Текст сообщения об успешной операции</div>
+                </div>
+            </section>
+            <h2 class="rf-label">Регистрационная форма</h2>
+            <section class="rf-name">
+                <input class="rf-input big_text rf-name-item" type="text" name="first_name" value placeholder="Имя"
+                    maxlength="32">
+                <input class="rf-input big_text rf-name-item" type="text" name="last_name" value placeholder="Фамилия"
+                    maxlength="32">
+            </section>
+            <section class="rf-birth">
+                <input class="rf-input big_text rf-birth-item" type="text" name="birth_day" value
+                    placeholder="День рождения" maxlength="2">
+                <select class="big_text rf-birth-month rf-birth-item" name="city">
+                    <option class="rf-birth-month-item rf-birth-item" value="jan">Января</option>
+                    <option class="rf-birth-month-item rf-birth-item" value="feb">Февраля</option>
+                    <option class="rf-birth-month-item rf-birth-item" value="mar">Марта</option>
+                    <option class="rf-birth-month-item rf-birth-item" value="apr">Апреля</option>
+                    <option class="rf-birth-month-item rf-birth-item" value="may">Мая</option>
+                    <option class="rf-birth-month-item rf-birth-item" value="jun">Июня</option>
+                    <option class="rf-birth-month-item rf-birth-item" value="jul">Июля</option>
+                    <option class="rf-birth-month-item rf-birth-item" value="aug">Августа</option>
+                    <option class="rf-birth-month-item rf-birth-item" value="sep">Сентября</option>
+                    <option class="rf-birth-month-item rf-birth-item" value="oct">Октября</option>
+                    <option class="rf-birth-month-item rf-birth-item" value="nov">Ноября</option>
+                    <option class="rf-birth-month-item rf-birth-item" value="dec">Декабря</option>
+                </select>
+                <input class="rf-input big_text rf-birth-item" type="text" name="birth_year" value
+                    placeholder="Год рождения" maxlength="4">
+            </section>
+            <section class="rf-city">
+                <select class="rf-city big_text" name="city">
+                    <option class="rf-city-item" value="msk">Москва</option>
+                    <option class="rf-city-item" value="spb">Санкт-Петербург</option>
+                    <option class="rf-city-item" value="nno">Нижний Новгород</option>
+                    <option class="rf-city-item" value="kaz">Казань</option>
+                    <option class="rf-city-item" value="ekb">Екатеринбург</option>
+                    <option class="rf-city-item" value="inn">Иннополис</option>
+                    <option class="rf-city-item" value="rga">Рига</option>
+                    <option class="rf-city-item" value="hel">Хельсинки</option>
+                </select>
+            </section>
+            <div class="btn-container">
+                <button class="btn btn-blue">Отправить</button>
+            </div>
+        </form>
+    </article>
+</body>
+
+</html>
