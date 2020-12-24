@@ -1,10 +1,9 @@
-/*TODO: comments*/
-
 body {
     font-size: 14px;
     background-color: #f1f1f1;
 }
 
+/* регистрационная форма */
 form.rf {
     box-sizing: border-box;
     background-color: #fff;
@@ -21,6 +20,7 @@ form.rf {
     border-radius: 6px;
 }
 
+/* регистрационная форма смещённая по центру (горизонтально) */
 form.rf-center {
     margin: 0 auto;
     left: 0;
@@ -36,6 +36,7 @@ h2.rf-label {
     font-size: 1.1em;
 }
 
+/* поля ввода, селекты месяца и города */
 input.rf-input, 
 select.rf-birth-month, 
 select.rf-city {
@@ -46,20 +47,7 @@ select.rf-city {
     background-color: transparent;
 }
 
-input.rf-input:invalid, 
-select.rf-birth-month:invalid, 
-select.rf-city:invalid {
-    border-color: rgb(153, 0, 0);
-    background-color: rgb(255, 221, 221);
-}
-
-input.rf-input:invalid:focus, 
-select.rf-birth-month:invalid:focus, 
-select.rf-city:invalid:focus {
-    border-color:  rgb(206, 11, 11);
-    background-color: rgb(255, 221, 221);
-}
-
+/* поля ввода, селекты месяца и города с фокусом на них */
 input.rf-input:focus, 
 select.rf-birth-month:focus, 
 select.rf-city:focus {
@@ -67,6 +55,23 @@ select.rf-city:focus {
     border-bottom: 2px solid #188fff;
 }
 
+/* поля ввода, селекты месяца и города непрошедшие валидацию */
+input.rf-input:invalid, 
+select.rf-birth-month:invalid, 
+select.rf-city:invalid {
+    border-color: rgb(153, 0, 0);
+    background-color: rgb(255, 221, 221);
+}
+
+/* поля ввода, селекты месяца и города непрошедшие валидацию с фокусом на них */
+input.rf-input:invalid:focus, 
+select.rf-birth-month:invalid:focus, 
+select.rf-city:invalid:focus {
+    border-color:  rgb(206, 11, 11);
+    background-color: rgb(255, 221, 221);
+}
+
+/* выравнивает контейнеры с элементами в форме */
 .rf-name,
 .rf-birth,
 section.rf-city,
@@ -74,22 +79,24 @@ button.btn {
     margin: 20px 3%;
 }
 
+/* ширина элемента контейнера с именем */
 input.rf-name-item {
     width: 41.3%;
 }
 
+/* ширина элемента контейнера с датой рождения */
 input.rf-birth-item {
     width: 28.3%;
 }
 
-select.rf-birth-month {
-    width: auto;
+/* контейнер кнопки */
+.btn-container {
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
 }
 
-select.rf-city {
-    width: auto;
-}
-
+/* кнопка (необязательно button) */
 .btn {
     cursor: pointer;
     border: 1px solid;
@@ -100,18 +107,14 @@ select.rf-city {
     width: 100%;
 }
 
+/* синяя кнопка */
 .btn-blue {
     color: #fff;
     background: #188fff;
     border-color: #188fff;
 }
 
-.btn-container {
-    margin-top: 10%;
-    display: flex;
-    justify-content: center;
-}
-
+/* результат выполнения операции отправки видимый */
 .rf-result-visible {
     display: block;
     background-color: #fff;
@@ -122,22 +125,26 @@ select.rf-city {
     border-radius: .25em;
 }
 
+/* результат выполнения операции отправки невидимый */
 .rf-result-invisible {
     display: none;
 }
 
+/* красный (ошибочный) результат выполнения операции отправки */
 .rf-result-red {
     color: #721c24;
     background-color: #f8d7da;
     border-color: #f5c6cb;
 }
 
+/* зелёный (успешный) результат выполнения операции отправки */
 .rf-result-green {
     color: #155724;
     background-color: #d4edda;
     border-color: #c3e6cb;
 }
 
+/* титульники сообщений результата выполнения операций */
 #rf-err-title,
 #rf-suc-title {
     font-size: 1.3em;
