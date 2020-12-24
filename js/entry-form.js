@@ -122,7 +122,7 @@ function validateBirthDate() {
 
 //Проверяем дату рождения на консистентность
 function isBirthDateConsistant(year, month, day) {
-    let daysInMonth = DAYS_IN_MONTH[month - 1];
+    let daysInMonth = DAYS_IN_MONTH[month];
     if (day > daysInMonth) {
         //февраль
         if (day === 29) {
