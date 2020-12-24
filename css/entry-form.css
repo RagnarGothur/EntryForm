@@ -1,3 +1,5 @@
+/*TODO: comments*/
+
 body {
     font-size: 14px;
     background-color: #f1f1f1;
@@ -42,6 +44,20 @@ select.rf-city {
     border: 0;
     border-bottom: 2px solid #d8dade;
     background-color: transparent;
+}
+
+input.rf-input:invalid, 
+select.rf-birth-month:invalid, 
+select.rf-city:invalid {
+    border-color: rgb(153, 0, 0);
+    background-color: rgb(255, 221, 221);
+}
+
+input.rf-input:invalid:focus, 
+select.rf-birth-month:invalid:focus, 
+select.rf-city:invalid:focus {
+    border-color:  rgb(206, 11, 11);
+    background-color: rgb(255, 221, 221);
 }
 
 input.rf-input:focus, 
