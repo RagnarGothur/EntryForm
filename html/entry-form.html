@@ -9,7 +9,7 @@
 
 <body>
     <article class="reg-form">
-        <form class="rf rf-center" action="registration">
+        <form class="rf rf-center" onsubmit="return validateForm()">
             <section class="rf-result-container">
                 <div class="rf-result-invisible rf-result-red" role="alert" tabindex="0">
                     <div id="rf-err-title">Заголовок ошибки</div>
@@ -22,13 +22,18 @@
             </section>
             <h2 class="rf-label">Регистрационная форма</h2>
             <section class="rf-name">
-                <input id="rf-input-first-name" class="rf-input big_text rf-name-item" type="text" name="first_name" value placeholder="Имя">
-                <input id="rf-input-last-name" class="rf-input big_text rf-name-item" type="text" name="last_name" value placeholder="Фамилия">
+                <input id="rf-input-first-name" class="rf-input big_text rf-name-item" type="text" name="first_name"
+                    onblur="validateNotEmpty(this)" oninput="validateNotEmpty(this)" maxlength="10" value
+                    placeholder="Имя">
+                <input id="rf-input-last-name" class="rf-input big_text rf-name-item" type="text" name="last_name"
+                    onblur="validateNotEmpty(this)" oninput="validateNotEmpty(this)" maxlength="15" value
+                    placeholder="Фамилия">
             </section>
             <section class="rf-birth">
-                <input id="rf-birth-day" class="rf-input big_text rf-birth-item" type="number" name="birth_day" min="1" max="31" value="1"
-                    placeholder="День рождения">
-                <select id="rf-birth-month" class="rf-input rf-birth-month big_text rf-birth-item" name="city" onchange="validateBirthDate();">
+                <input id="rf-birth-day" class="rf-input big_text rf-birth-item" type="number" name="birth_day"
+                    oninput="validateBirthDate();" min="1" max="31" value="1" placeholder="День рождения">
+                <select id="rf-birth-month" class="rf-input rf-birth-month big_text rf-birth-item" name="city"
+                    oninput="validateBirthDate();">
                     <option class="rf-birth-month-item" value=0>Января</option>
                     <option class="rf-birth-month-item" value=1>Февраля</option>
                     <option class="rf-birth-month-item" value=2>Марта</option>
@@ -42,8 +47,8 @@
                     <option class="rf-birth-month-item" value=10>Ноября</option>
                     <option class="rf-birth-month-item" value=11>Декабря</option>
                 </select>
-                <input id="rf-birth-year" class="rf-input big_text rf-birth-item" type="number" name="birth_year" min="1900" max="2100" value="2000"
-                    placeholder="Год рождения" >
+                <input id="rf-birth-year" class="rf-input big_text rf-birth-item" type="number" name="birth_year"
+                    onchange="validateBirthDate();" min="1900" max="2100" value="2000" placeholder="Год рождения">
             </section>
             <section class="rf-city">
                 <select class="rf-city big_text" name="city">
@@ -62,7 +67,7 @@
             </div>
         </form>
     </article>
-    
+
     <script src="../js/entry-form.js"></script>
 </body>
 
