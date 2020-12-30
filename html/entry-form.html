@@ -9,7 +9,7 @@
 
 <body>
     <article class="reg-form">
-        <form class="rf rf-center" onsubmit="return validateForm()">
+        <form id="rf" class="rf rf-center">
             <section class="rf-result-container">
                 <div class="rf-result-invisible rf-result-red" role="alert" tabindex="0">
                     <div id="rf-err-title">Заголовок ошибки</div>
@@ -32,7 +32,7 @@
             <section class="rf-birth">
                 <input id="rf-birth-day" class="rf-input big_text rf-birth-item" type="number" name="birth_day"
                     oninput="validateBirthDate();" min="1" max="31" value="1" placeholder="День рождения">
-                <select id="rf-birth-month" class="rf-input rf-birth-month big_text rf-birth-item" name="city"
+                <select id="rf-birth-month" class="rf-input rf-birth-month big_text rf-birth-item" name="birth_month"
                     oninput="validateBirthDate();">
                     <option class="rf-birth-month-item" value=0>Января</option>
                     <option class="rf-birth-month-item" value=1>Февраля</option>
@@ -51,7 +51,7 @@
                     onchange="validateBirthDate();" min="1900" max="2100" value="2000" placeholder="Год рождения">
             </section>
             <section class="rf-city">
-                <select class="rf-city big_text" name="city">
+                <select id="rf-city" class="rf-city big_text" name="city">
                     <option class="rf-city-item" value="msk">Москва</option>
                     <option class="rf-city-item" value="spb">Санкт-Петербург</option>
                     <option class="rf-city-item" value="nno">Нижний Новгород</option>
@@ -60,6 +60,7 @@
                     <option class="rf-city-item" value="inn">Иннополис</option>
                     <option class="rf-city-item" value="rga">Рига</option>
                     <option class="rf-city-item" value="hel">Хельсинки</option>
+                    <option class="rf-city-item" value="kus">Кушкек</option>
                 </select>
             </section>
             <div class="btn-container">

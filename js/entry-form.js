@@ -3,23 +3,69 @@ const MSG_VALUE_EMPTY = "Значение не может быть пустым"
 const MSG_VALUE_INVALID = "Неверное значение";
 // связка индексов месяцев с количеством дней в месяце, где: 0 - январь, 1 - февраль, ..., 11 - декабрь
 const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+const KEY_USERS_LIST = "usersList";
+let Name, BirthDate, Whereabout;
 
-const Name = {
-    all: document.getElementsByClassName("rf-name-item"),
-    first: document.getElementById("rf-input-first-name"),
-    last: document.getElementById("rf-input-last-name"),
+window.onload = init;
+
+function init() {
+    Name = {
+        all: document.getElementsByClassName("rf-name-item"),
+        first: document.getElementById("rf-input-first-name"),
+        last: document.getElementById("rf-input-last-name"),
+    }
+
+    BirthDate = {
+        all: document.getElementsByClassName("rf-birth-item"),
+        day: document.getElementById("rf-birth-day"),
+        month: document.getElementById("rf-birth-month"),
+        year: document.getElementById("rf-birth-year"),
+
+        toString: function () {
+            return `${this.year.value}.${parseInt(this.month.value) + 1}.${this.day.value}`;
+        }
+    }
+
+    Whereabout = {
+        city: document.getElementById("rf-city")
+    }
+
+    let registrationForm = document.getElementById("rf");
+    registrationForm.onsubmit = sendForm;
 }
 
-const BirthDate = {
-    all: document.getElementsByClassName("rf-birth-item"),
-    day: document.getElementById("rf-birth-day"),
-    month: document.getElementById("rf-birth-month"),
-    year: document.getElementById("rf-birth-year")
+//"Отправка" формы
+function sendForm() {
+    try {
+        if ((validateBirthDate() && validateName())) {
+            updateUsersList();
+            window.location.reload();
+        }
+
+        return false;
+    }
+    catch (e) {
+        console.error(e);
+    }
 }
 
-//Валидация формы, true - валидна, false - невалидна
-function validateForm() {
-    return validateBirthDate() && validateName();
+//Обновляет информацию о созданных пользователях в локальном хранилище, добавляя только что созданного
+function updateUsersList() {
+    let storedUsersList = JSON.parse(localStorage.getItem(KEY_USERS_LIST) ?? "[]");
+    let usersList = [];
+    for (let i in storedUsersList) {
+        usersList.push(storedUsersList[i]);
+    }
+
+    //Предполагается, что идентификаторы ∈ {0, ..., usersList.length - 1}
+    let id = usersList.length > 0 ? usersList.length : 0;
+
+    let user = JSON.stringify(
+        { id: id, firstName: Name.first.value, lastName: Name.last.value, birth: BirthDate.toString(), city: Whereabout.city.value }
+    );
+
+    usersList.push(user);
+    localStorage.setItem(KEY_USERS_LIST, JSON.stringify(usersList));
 }
 
 //Валидируем дату рождения, true - валидна, false - невалидна
@@ -39,7 +85,7 @@ function validateBirthDate() {
     if (!noEmpty) {
         return false;
     }
-    
+
     //Проверяем, что введённые данные являются валидными цифрами
     try {
         var day = parseInt(BirthDate.day.value);
