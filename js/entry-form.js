@@ -4,7 +4,7 @@ const MSG_VALUE_INVALID = "Неверное значение";
 // связка индексов месяцев с количеством дней в месяце, где: 0 - январь, 1 - февраль, ..., 11 - декабрь
 const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 const KEY_USERS_LIST = "usersList";
-let Name, BirthDate, Whereabout;
+let Name, BirthDate, Locality;
 
 window.onload = init;
 
@@ -26,7 +26,7 @@ function init() {
         }
     }
 
-    Whereabout = {
+    Locality = {
         city: document.getElementById("rf-city")
     }
 
@@ -75,7 +75,7 @@ function updateUsersList() {
     let id = usersList.length > 0 ? usersList.length : 0;
 
     let user = JSON.stringify(
-        { id: id, firstName: Name.first.value, lastName: Name.last.value, birth: BirthDate.toString(), city: Whereabout.city.value }
+        { id: id, firstName: Name.first.value, lastName: Name.last.value, birth: BirthDate.toString(), city: Locality.city.value }
     );
 
     usersList.push(user);
