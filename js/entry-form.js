@@ -1,3 +1,15 @@
+const CITIES = {
+    msk: "Москва",
+    spb: "Санкт-Петербург",
+    nno: "Нижний Новгород",
+    kaz: "Казань",
+    ekb: "Екатеринбург",
+    inn: "Иннополис",
+    rga: "Рига",
+    hel: "Хельсинки",
+    kus: "Кушкек"
+};
+
 const MSG_VALUE_TOO_LONG = "Значение слишком длинное";
 const MSG_VALUE_EMPTY = "Значение не может быть пустым";
 const MSG_VALUE_INVALID = "Неверное значение";
@@ -30,9 +42,28 @@ function init() {
         city: document.getElementById("rf-city")
     }
 
+    fillData();
     registerEventListeners();
 }
 
+//Заполнение данных в html
+function fillData() {
+    fillCities();
+}
+
+//Заполняем селект городов
+//На самом деле нужно получать города с сервера, но в данном задании достаём из константы
+function fillCities() {
+    for (let city in CITIES) {
+        let opt = document.createElement("option");
+        opt.className = "rf-city-item";
+        opt.value = city;
+        opt.innerHTML = CITIES[city];
+        Locality.city.appendChild(opt);
+    }
+}
+
+//Регистрируем обработчики событий
 function registerEventListeners() {
     Array.from(BirthDate.all).forEach(function (element) {
         element.addEventListener("input", validateBirthDate);
@@ -63,7 +94,7 @@ function sendForm() {
     }
 }
 
-//Обновляет информацию о созданных пользователях в локальном хранилище, добавляя только что созданного
+//по ТЗ. Обновляет информацию о созданных пользователях в локальном хранилище, добавляя только что созданного
 function updateUsersList() {
     let storedUsersList = JSON.parse(localStorage.getItem(KEY_USERS_LIST) ?? "[]");
     let usersList = [];
