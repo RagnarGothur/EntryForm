@@ -23,17 +23,14 @@
             <h2 class="rf-label">Регистрационная форма</h2>
             <section class="rf-name">
                 <input id="rf-input-first-name" class="rf-input big_text rf-name-item" type="text" name="first_name"
-                    onblur="validateNotEmpty(this)" oninput="validateNotEmpty(this)" maxlength="10" value
-                    placeholder="Имя">
+                    maxlength="10" value placeholder="Имя">
                 <input id="rf-input-last-name" class="rf-input big_text rf-name-item" type="text" name="last_name"
-                    onblur="validateNotEmpty(this)" oninput="validateNotEmpty(this)" maxlength="15" value
-                    placeholder="Фамилия">
+                    maxlength="15" value placeholder="Фамилия">
             </section>
             <section class="rf-birth">
-                <input id="rf-birth-day" class="rf-input big_text rf-birth-item" type="number" name="birth_day"
-                    oninput="validateBirthDate();" min="1" max="31" value="1" placeholder="День рождения">
-                <select id="rf-birth-month" class="rf-input rf-birth-month big_text rf-birth-item" name="birth_month"
-                    oninput="validateBirthDate();">
+                <input id="rf-birth-day" class="rf-input big_text rf-birth-item" type="number" name="birth_day" min="1"
+                    max="31" value="1" placeholder="День рождения">
+                <select id="rf-birth-month" class="rf-input rf-birth-month big_text rf-birth-item" name="birth_month">
                     <option class="rf-birth-month-item" value=0>Января</option>
                     <option class="rf-birth-month-item" value=1>Февраля</option>
                     <option class="rf-birth-month-item" value=2>Марта</option>
@@ -48,7 +45,7 @@
                     <option class="rf-birth-month-item" value=11>Декабря</option>
                 </select>
                 <input id="rf-birth-year" class="rf-input big_text rf-birth-item" type="number" name="birth_year"
-                    onchange="validateBirthDate();" min="1900" max="2100" value="2000" placeholder="Год рождения">
+                    min="1900" max="2100" value="2000" placeholder="Год рождения">
             </section>
             <section class="rf-city">
                 <select id="rf-city" class="rf-city big_text" name="city">

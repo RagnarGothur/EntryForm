@@ -30,6 +30,20 @@ function init() {
         city: document.getElementById("rf-city")
     }
 
+    registerEventListeners();
+}
+
+function registerEventListeners() {
+    Array.from(BirthDate.all).forEach(function (element) {
+        element.addEventListener("input", validateBirthDate);
+    });
+
+    Array.from(Name.all).forEach(function (element) {
+        element.addEventListener("input", function () {
+            return validateNotEmpty(element);
+        });
+    });
+
     let registrationForm = document.getElementById("rf");
     registrationForm.onsubmit = sendForm;
 }
